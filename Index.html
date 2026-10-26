@@ -1,0 +1,694 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أمبرا بلس — الطريق الأبرد من محطة المترو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #F6FFEA;
+    --ink: #3A281E;
+    --mute: #72685B;
+    --accent: #CA3537;
+    --cyan: #61C4DB;
+    --orange: #FA855A;
+    --card: #FFF3DB;
+    --line: #DDE6D0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Amiri, serif;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mono {
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+header {
+    padding: 22px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+header a.btn {
+    font-size: 16px;
+}
+
+.rule {
+    height: 4px;
+    background: var(--cyan);
+    border-bottom: 3px solid var(--ink);
+    margin: 14px 0 0;
+}
+
+h1 {
+    font-size: clamp(36px, 8vw, 58px);
+    line-height: 1.2;
+    margin: 36px 0 10px;
+}
+
+h2 {
+    font-size: clamp(28px, 6vw, 36px);
+    margin: 6px 0 10px;
+    line-height: 1.3;
+}
+
+section {
+    padding: 36px 0 8px;
+}
+
+p {
+    margin: 0 0 14px;
+}
+
+.lead {
+    font-size: 22px;
+    color: var(--mute);
+}
+
+.stats,
+.grid3,
+.compare {
+    display: grid;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.stats,
+.grid3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.compare {
+    grid-template-columns: 1fr 1fr;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.card.c2 {
+    border-top-color: var(--cyan);
+}
+
+.card.c3 {
+    border-top-color: var(--orange);
+}
+
+.card h3 {
+    margin: 0 0 4px;
+    font-size: 22px;
+}
+
+.card p {
+    font-size: 17px;
+    color: var(--mute);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.big {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+    display: block;
+}
+
+.step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin: 12px 0;
+}
+
+.step i {
+    font-style: normal;
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--bg);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.cool {
+    border-top-color: var(--cyan);
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.price .n {
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+ul {
+    padding: 0 22px;
+    margin: 0 0 20px;
+}
+
+li {
+    margin: 4px 0;
+}
+
+.btn,
+button.cta {
+    display: inline-block;
+    border: 0;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font: 700 20px Amiri, serif;
+    padding: 12px 26px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button.cta {
+    width: 100%;
+    padding: 16px;
+    font-size: 24px;
+}
+
+.btn:hover,
+button.cta:hover {
+    filter: brightness(1.1);
+}
+
+.cta-box {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 40px 0;
+}
+
+.cta-box .lead {
+    color: #d9cdbd;
+}
+
+.cta-box .n {
+    color: var(--orange);
+}
+
+a {
+    color: var(--accent);
+}
+
+.demo {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: var(--cyan);
+}
+
+.note {
+    font-size: 15px;
+    color: var(--mute);
+}
+
+.cta-box .note {
+    color: #bfb3a3;
+}
+
+footer {
+    padding: 10px 0 50px;
+    font-size: 15px;
+    color: var(--mute);
+    border-top: 1px solid var(--line);
+    margin-top: 30px;
+}
+
+dialog {
+    border: 0;
+    border-radius: 10px;
+    padding: 24px;
+    max-width: 420px;
+    width: 92%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Amiri, serif;
+}
+
+dialog::backdrop {
+    background: rgba(58, 40, 30, .6);
+}
+
+label {
+    display: block;
+    margin: 12px 0 4px;
+    font-weight: 700;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px;
+    border-radius: 6px;
+    border: 1px solid var(--mute);
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 18px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.row button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--mute);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+}
+
+.row button.go {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 700;
+}
+
+.err {
+    color: var(--accent);
+    font-size: 16px;
+    min-height: 22px;
+}
+
+@media (max-width: 560px) {
+    .stats,
+    .grid3 {
+        grid-template-columns: 1fr;
+    }
+
+    .big {
+        font-size: 34px;
+    }
+}
+
+.stat {
+    border-radius: 22px;
+    padding: 22px 26px;
+    margin: 14px 0;
+    text-align: right;
+}
+
+.stat .num {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+    font-family: "Space Mono", monospace;
+}
+
+.stat .lbl {
+    font-size: 20px;
+    color: var(--mute);
+}
+
+.s1 {
+    background: #FDE3E0;
+}
+
+.s2 {
+    background: #DDF1F6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Netlify detects these forms at deploy time -->
+<form name="click" data-netlify="true" netlify-honeypot="bot" hidden>
+    <input name="bot">
+    <input name="source">
+    <input name="time">
+</form>
+
+<form name="signup" data-netlify="true" netlify-honeypot="bot" hidden>
+    <input name="bot">
+    <input name="name">
+    <input name="email">
+    <input name="station">
+</form>
+
+<div class="wrap">
+
+<header>
+    <span class="brand">UMBRA · أمبرا</span>
+    <a class="btn joinbtn" href="#join">اشتراك</a>
+</header>
+
+<div class="rule"></div>
+
+<section style="padding-top:8px">
+    <h1>انزل من المترو.<br>امشِ في الظل.</h1>
+
+    <p class="lead">ملاحة للمشاة تعرض لك الطريق الأسرع والأبرد من محطة المترو إلى وجهتك.</p>
+
+    <button class="cta joinbtn">اشتراك</button>
+
+    <button class="cta intbtn" style="background:transparent;color:var(--ink);border:2px solid var(--ink);margin-top:10px">مهتم بالفكرة</button>
+
+    <a class="demo" href="https://umbra-riyadh.netlify.app" target="_blank" rel="noopener">جرّب النموذج المجاني الآن ←</a>
+</section>
+
+<section style="padding-top:4px">
+    <div class="stat s1">
+        <span class="num" id="cSub">0</span>
+        <span class="lbl">مشترك</span>
+    </div>
+
+    <div class="stat s2">
+        <span class="num" id="cInt">0</span>
+        <span class="lbl">مهتم بالفكرة</span>
+    </div>
+</section>
+
+<section>
+    <div class="mono">THE PROBLEM</div>
+    <h2>الخرائط تحسب المسافة، لا الظل.</h2>
+
+    <div class="stats">
+        <div class="card">
+            <span class="big">١٠٠ مليون</span>
+            <p>راكب لمترو الرياض في أول تسعة أشهر</p>
+        </div>
+
+        <div class="card c2">
+            <span class="big">٥٠°</span>
+            <p>أعلى حرارة سُجّلت في السعودية هذا الصيف</p>
+        </div>
+
+        <div class="card c3">
+            <span class="big">٣ أشهر</span>
+            <p>حظر رسمي للعمل تحت الشمس</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="mono">THE SOLUTION</div>
+    <h2>أمبرا: ملاحة تحسب الظل.</h2>
+
+    <div class="grid3">
+        <div class="card">
+            <h3>مسار أبرد</h3>
+            <p>خيار فعلي أقل تعرضًا للشمس، لا مجرد تحذير من الحر.</p>
+        </div>
+
+        <div class="card c2">
+            <h3>قرار واعٍ</h3>
+            <p>ترى الثمن والمقابل: كم دقيقة إضافية مقابل كم ظل.</p>
+        </div>
+
+        <div class="card c3">
+            <h3>شرح بلغتك</h3>
+            <p>جملة عربية تشرح لماذا هذا المسار، لا أرقام صمّاء.</p>
+        </div>
+    </div>
+
+    <div class="compare">
+        <div class="card">
+            <p>الطريق الأسرع</p>
+            <span class="big">١٠ دقائق</span>
+            <p>ظل ١٥٪ · راحة ٤٦/١٠٠</p>
+        </div>
+
+        <div class="card c2">
+            <p>الطريق الأبرد</p>
+            <span class="big" style="color:#2a93ab">١٣ دقيقة</span>
+            <p>ظل ٧٩٪ · راحة ٩٨/١٠٠</p>
+        </div>
+    </div>
+</section>
+
+<section id="join">
+    <div class="cta-box">
+        <div class="mono">أمبرا بلس</div>
+
+        <div class="price">
+            <span class="n">١٢</span>
+            <span>ريالًا / شهريًا</span>
+        </div>
+
+        <ul>
+            <li>تخطيط مسبق وتنبيهات حرارة</li>
+            <li>مسارات بلا حد</li>
+        </ul>
+
+        <button class="cta joinbtn">اشتراك</button>
+
+        <button class="cta intbtn" style="background:transparent;color:var(--ink);border:2px solid var(--ink);margin-top:10px">مهتم بالفكرة</button>
+
+        <p class="note" style="margin-top:12px">نحن في مرحلة التسجيل المبكر. لن يُخصم منك شيء الآن، وسنتواصل معك عند الإطلاق.</p>
+    </div>
+</section>
+
+<footer>فريق أمبرا: الجوهرة المعيقل · ريتاج العنزي</footer>
+
+</div>
+
+<dialog id="dlg">
+    <h2 style="margin:0 0 4px">سجّل اشتراكك المبكر</h2>
+
+    <div class="note" style="margin:0">بيانات حقيقية فقط، سنراسلك على بريدك.</div>
+
+    <form id="f">
+        <label for="name">الاسم</label>
+        <input id="name" required minlength="2" autocomplete="name">
+
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" type="email" required autocomplete="email" dir="ltr">
+
+        <label for="station">أقرب محطة مترو لك</label>
+
+        <select id="station" required>
+            <option value="">اختر</option>
+            <option>KAFD</option>
+            <option>قصر الحكم</option>
+            <option>stc</option>
+            <option>المتحف الوطني</option>
+            <option>أخرى</option>
+        </select>
+
+        <div class="err" id="err"></div>
+
+        <div class="row">
+            <button type="button" id="cancel">إلغاء</button>
+            <button class="go" type="submit">تأكيد الاشتراك</button>
+        </div>
+    </form>
+
+    <div id="done" hidden>
+        <h2>تم تسجيلك ✓</h2>
+        <p>شكرًا لك. سنتواصل معك على بريدك عند الإطلاق.</p>
+
+        <div class="row">
+            <button type="button" id="close">إغلاق</button>
+        </div>
+    </div>
+</dialog>
+
+<script>
+const enc = o => new URLSearchParams(o).toString();
+
+const post = o => fetch("/", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: enc(o)
+});
+
+const track = t => fetch("/api/track", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        type: t,
+        src: new URLSearchParams(location.search).get("src") || "direct"
+    })
+}).catch(() => {});
+
+try {
+    if (!sessionStorage.getItem("v")) {
+        sessionStorage.setItem("v", "1");
+        track("visit");
+    }
+} catch (_) {
+    track("visit");
+}
+
+document.querySelectorAll(".intbtn").forEach(b => b.onclick = () => {
+    b.textContent = "شكرًا لاهتمامك ✓";
+    b.disabled = true;
+    track("interest").then(refresh);
+});
+
+const shown = {
+    cSub: 0,
+    cInt: 0
+};
+
+function setNum(id, v) {
+    const el = document.getElementById(id);
+    const from = shown[id];
+
+    shown[id] = v;
+
+    if (from === v) return;
+
+    const t0 = performance.now();
+
+    (function s(t) {
+        const p = Math.min((t - t0) / 700, 1);
+
+        el.textContent = Math.round(from + (v - from) * p).toLocaleString("en");
+
+        if (p < 1) requestAnimationFrame(s);
+    })(t0);
+}
+
+async function refresh() {
+    try {
+        const r = await fetch("/api/counts", {
+            cache: "no-store"
+        });
+
+        if (!r.ok) return;
+
+        const d = await r.json();
+
+        setNum("cSub", d.subscribe);
+        setNum("cInt", d.interest);
+    } catch (_) {}
+}
+
+refresh();
+setInterval(refresh, 5000);
+
+const dlg = document.getElementById("dlg");
+const f = document.getElementById("f");
+const done = document.getElementById("done");
+const err = document.getElementById("err");
+
+const src = new URLSearchParams(location.search).get("src") || "direct";
+
+document.querySelectorAll(".joinbtn").forEach(b => b.onclick = (ev) => {
+    ev.preventDefault();
+
+    // Count the click (intent), even if the person never finishes registering
+    post({
+        "form-name": "click",
+        source: src + (ev.target.closest("#join") ? "-bottom" : "-top"),
+        time: new Date().toISOString()
+    }).catch(() => {});
+
+    track("subscribe_click").then(refresh);
+
+    dlg.showModal();
+});
+
+document.getElementById("cancel").onclick = () => dlg.close();
+document.getElementById("close").onclick = () => dlg.close();
+
+f.onsubmit = async e => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const name = document.getElementById("name").value.trim();
+
+    if (/(test|fake|example|asdf|xxx)/i.test(email + name)) {
+        err.textContent = "الرجاء إدخال بيانات حقيقية.";
+        return;
+    }
+
+    if (localStorage.getItem("umbra_" + email)) {
+        err.textContent = "هذا البريد مسجّل مسبقًا.";
+        return;
+    }
+
+    err.textContent = "";
+
+    try {
+        const r = await post({
+            "form-name": "signup",
+            name,
+            email,
+            station: document.getElementById("station").value
+        });
+
+        if (!r.ok) throw 0;
+
+        try {
+            localStorage.setItem("umbra_" + email, "1");
+        } catch (_) {}
+
+        f.hidden = true;
+        done.hidden = false;
+
+        track("subscribe_done");
+    } catch (_) {
+        err.textContent = "تعذّر الإرسال، حاول مرة أخرى.";
+    }
+};
+</script>
+
+</body>
+</html>
+```
